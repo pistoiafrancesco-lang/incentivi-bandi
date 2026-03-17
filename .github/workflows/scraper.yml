@@ -2,8 +2,8 @@ name: Scraper Incentivi Giornaliero
 
 on:
   schedule:
-    - cron: '0 6 * * *'   # ogni giorno alle 06:00 UTC (08:00 ora italiana)
-  workflow_dispatch:        # permette avvio manuale dal sito GitHub
+    - cron: '0 6 * * *'
+  workflow_dispatch:
 
 jobs:
   scraper:
@@ -21,10 +21,25 @@ jobs:
       - name: Installa dipendenze
         run: pip install requests
 
-      - name: Esegui scraper
-        run: python incentivi_scraper.py
+      - name: Scarica CSV con curl
+        run: |
+          DATE=$(date +'%-Y-%-m-%-d')
+          URL="https://www.incentivi.gov.it/sites/default/files/open-data/${DATE}_opendata-export.csv"
+          echo "Provo URL: $URL"
+          curl -L --retry 3 --retry-delay 5 \
+            -A "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36" \
+            -o opendata-latest.csv \
+            "$URL" || \
+          curl -L --retry 3 --retry-delay 5 \
+            -A "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36" \
+            -o opendata-latest.csv \
+            "https://www.incentivi.gov.it/sites/default/files/open-data/$(date -d 'yesterday' +'%-Y-%-m-%-d')_opendata-export.csv"
+          echo "Dimensione file: $(wc -c < opendata-latest.csv) bytes"
 
-      - name: Commit e push dei file output
+      - name: Processa CSV con Python
+        run: python incentivi_scraper.py --input opendata-latest.csv
+
+      - name: Commit e push output
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
