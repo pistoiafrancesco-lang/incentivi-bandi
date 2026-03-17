@@ -1,0 +1,33 @@
+name: Scraper EU Funding & Tenders
+
+on:
+  schedule:
+    - cron: '0 7 * * *'   # ogni giorno alle 07:00 UTC (09:00 ora italiana)
+  workflow_dispatch:        # avvio manuale dal sito GitHub
+
+jobs:
+  scraper:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Installa dipendenze
+        run: pip install requests
+
+      - name: Esegui scraper EU
+        run: python eu_scraper.py
+
+      - name: Commit e push output
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add eu_bandi_*.json eu_bandi_*.csv
+          git diff --cached --quiet || git commit -m "Update bandi EU $(date +'%Y-%m-%d')"
+          git push
