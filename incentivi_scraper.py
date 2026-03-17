@@ -20,7 +20,7 @@ from datetime import date, timedelta
 # ── Configurazione ────────────────────────────────────────────────────────────
 
 BASE_URL = "https://www.incentivi.gov.it/sites/default/files/open-data"
-MAX_DAYS_BACK = 30          # cerca fino a 30 giorni indietro se oggi non c'è ancora
+MAX_DAYS_BACK = 7          # cerca fino a 30 giorni indietro se oggi non c'è ancora
 OUTPUT_JSON = True
 OUTPUT_CSV  = True
 ENCODING    = "utf-8-sig"   # il file governativo usa BOM UTF-8
@@ -84,7 +84,7 @@ def fetch_latest_csv() -> tuple[str, date]:
         d = today - timedelta(days=delta)
         url = build_url(d)
         try:
-            resp = session.get(url, timeout=30)
+            resp = session.get(url, timeout=10)
             if resp.status_code == 200 and len(resp.content) > 500:
                 print(f"✓ File trovato: {url}")
                 return resp.content.decode(ENCODING, errors="replace"), d
