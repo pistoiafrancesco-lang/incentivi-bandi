@@ -1,1 +1,9 @@
-
+BEGIN:VCARD
+VERSION:3.0
+FN:Antonio Prima
+N:Prima;Antonio;;;
+ORG:Change Capital
+TITLE:Advisor Finanza Agevolata
+TEL;TYPE=CELL:+391111111111
+EMAIL:a.prima@emailprova.it
+END:VCARD
