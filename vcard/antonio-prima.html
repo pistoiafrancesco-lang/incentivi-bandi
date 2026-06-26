@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Antonio Prima – Change Capital</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f0f4f8;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px 16px;
+    }
+
+    .card {
+      background: #ffffff;
+      border-radius: 20px;
+      width: 100%;
+      max-width: 380px;
+      overflow: hidden;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.10);
+    }
+
+    .header {
+      background: #003087;
+      padding: 36px 28px 28px;
+      text-align: center;
+    }
+
+    .avatar {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      background: #ffffff22;
+      border: 3px solid #ffffff44;
+      margin: 0 auto 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      color: #fff;
+      font-weight: 600;
+      letter-spacing: -1px;
+    }
+
+    .name {
+      color: #ffffff;
+      font-size: 22px;
+      font-weight: 600;
+      letter-spacing: -0.3px;
+    }
+
+    .role {
+      color: #a8c4e8;
+      font-size: 13px;
+      font-weight: 500;
+      margin-top: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+    }
+
+    .company {
+      color: #ffffff99;
+      font-size: 13px;
+      margin-top: 6px;
+    }
+
+    .divider {
+      height: 1px;
+      background: #003087;
+      opacity: 0.08;
+      margin: 0 28px;
+    }
+
+    .info {
+      padding: 24px 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .info-row {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .info-icon {
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      background: #f0f4f8;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 16px;
+    }
+
+    .info-label {
+      font-size: 11px;
+      color: #94a3b8;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+    }
+
+    .info-value {
+      font-size: 15px;
+      color: #1e293b;
+      font-weight: 500;
+      margin-top: 1px;
+    }
+
+    .info-value a {
+      color: #1e293b;
+      text-decoration: none;
+    }
+
+    .footer {
+      padding: 0 28px 28px;
+    }
+
+    .btn-save {
+      display: block;
+      width: 100%;
+      padding: 16px;
+      background: #003087;
+      color: #ffffff;
+      border: none;
+      border-radius: 12px;
+      font-size: 16px;
+      font-weight: 600;
+      font-family: 'Inter', sans-serif;
+      cursor: pointer;
+      text-align: center;
+      text-decoration: none;
+      letter-spacing: -0.2px;
+      transition: background 0.15s;
+    }
+
+    .btn-save:hover { background: #002060; }
+    .btn-save:active { background: #001540; }
+
+    .hint {
+      text-align: center;
+      font-size: 12px;
+      color: #94a3b8;
+      margin-top: 12px;
+    }
+
+    .cc-logo {
+      text-align: center;
+      padding: 0 28px 20px;
+      font-size: 11px;
+      color: #cbd5e1;
+      letter-spacing: 0.4px;
+      font-weight: 500;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+
+    <div class="header">
+      <div class="avatar">AP</div>
+      <div class="name">Antonio Prima</div>
+      <div class="role">Finanza Agevolata</div>
+      <div class="company">Change Capital · TeamSystem Group</div>
+    </div>
+
+    <div class="info">
+      <div class="info-row">
+        <div class="info-icon">📞</div>
+        <div>
+          <div class="info-label">Telefono</div>
+          <div class="info-value"><a href="tel:+391111111111">+39 111 111 1111</a></div>
+        </div>
+      </div>
+      <div class="info-row">
+        <div class="info-icon">✉️</div>
+        <div>
+          <div class="info-label">Email</div>
+          <div class="info-value"><a href="mailto:a.prima@emailprova.it">a.prima@emailprova.it</a></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="footer" style="padding-top:24px;">
+      <a class="btn-save" href="https://pistoiafrancesco-lang.github.io/incentivi-bandi/vcard/antonio-prima.vcf" download="antonio-prima.vcf">
+        ＋ Salva contatto
+      </a>
+      <div class="hint">Tocca il pulsante per aggiungere ai contatti</div>
+    </div>
+
+    <div class="cc-logo">CHANGE CAPITAL · TEAMSYSTEM GROUP</div>
+
+  </div>
+</body>
+</html>
